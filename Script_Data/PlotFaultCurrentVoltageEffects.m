@@ -19,7 +19,7 @@ function outValue = PlotFaultCurrentVoltageEffects(faultImpedanceArray, testCond
     run('GridFormingConverterTestCondition.mlx');
     
     if plotFlag>0
-        figure('Name', 'GridFormingConverterThreePhaseFault');
+        fig = figure('Name', 'GridFormingConverterThreePhaseFault');
         set(gcf, 'Position',  [400, 300, 800, 700]);
         axisDatasetting(gcf);
     end
@@ -108,7 +108,7 @@ function outValue = PlotFaultCurrentVoltageEffects(faultImpedanceArray, testCond
         subplot(3,2,1:2)
         xlim([disturbanceTime*0.8 simulationTime]);
         grid on
-        legend(legendFault);
+        legend(legendFault, 'Interpreter', 'latex');
         hold all
     
         subplot(3,2,3)
@@ -133,13 +133,31 @@ function outValue = PlotFaultCurrentVoltageEffects(faultImpedanceArray, testCond
     
         if min(MeasuredCurrentIs >= MinimumStandardCurrent)>0
             sgtitle(['Three-Phase Fault Measurement' newline 'Fault Current Injection is Within the Grid Code Limit'],'FontSize',13,'Color',[0,100,0]/256);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(gcf);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(gcf, "Three_Phase_Fault");
         else
             sgtitle(['Three-Phase Fault Measurement' newline 'Fault Current Injection is Outside the Grid Code Limit'],'FontSize',13,'Color',[139,0,0]/256);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(gcf);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(gcf, "Three_Phase_Fault");
         end
-        figure('Name', 'GridFormingConverterThreePhaseFaultStandard');
+        fig = figure('Name', 'GridFormingConverterThreePhaseFaultStandard');
         set(gcf, 'Position',  [400, 300, 800, 700]);
     
         plotCurrentLimitStandard(outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(gcf);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(gcf, "Three_Phase_Fault_Standard");
     end
     disp('Steady State Grid-Forming Converter Output Measurement in pu');
     disp(outputTable);
@@ -150,41 +168,41 @@ function axisDatasetting(gcf)
     hold all
     subplot(3,2,1:2)
     grid on
-    xlabel('time (s)');
-    ylabel('Fault Trigger)');
-    title('Fault Trigger Signal');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Fault\ Trigger}$)', 'Interpreter', 'latex');
+    title('\\textbf{Fault Trigger Signal}', 'Interpreter', 'latex');
     box on
     grid on
     hold all
     
     subplot(3,2,3)
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage Magnitude')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage Magnitude}', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,4)
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current Magnitude')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current Magnitude}', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,5)
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,6)
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power}', 'Interpreter', 'latex')
     box on
     hold all
 end
@@ -206,11 +224,11 @@ function plotCurrentLimitStandard(outValue)
     plot([outValue.Igq],[outValue.V],'o','LineWidth',3);
     
     legend('Standard Line','Standard Operating Area','Simulated Peak Current (I_{s})','Simulated Peak Quadrature Axis Current (I_{q})');
-    legend('Location','southwest');
+    legend('Location','southwest', 'Interpreter', 'latex');
     grid on
     box on
     
-    ylabel('GFM Output Voltage (pu)');
+    ylabel('$\mathrm{GFM\ Output\ Voltage}$ (pu)', 'Interpreter', 'latex');
     xlabel('GFM Output Current (pu)');
     MinimumStandardCurrent  =[outValue.StdMin]'; MeasuredCurrentIs = [outValue.I]' ;
     if min(MeasuredCurrentIs >= MinimumStandardCurrent)>0

@@ -204,17 +204,17 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterNormalOperation');
-    set(gcf, 'Position',  [400, 300, 800, 700]);
+    fig = fig = figure('Name', 'GridFormingConverterNormalOperation');
+    set(fig, 'Position',  [400, 300, 800, 700]);
 
     subplot(2,2,1)
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
     ylim([0 1]);
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -222,19 +222,19 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
     grid on
-    xlabel('time (s)');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylim([0 1]);
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Reactive Power}', 'Interpreter', 'latex')
     box on
     hold all
 
     subplot(2,2,3)
     plot(timeArrayVabc,Vabc, 'LineWidth',2);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Voltage}', 'Interpreter', 'latex');
     xlim([timeArrayVabc(end)*0.99,timeArrayVabc(end)]);
     box on
     hold all
@@ -242,14 +242,20 @@ if plotFlag>0
     subplot(2,2,4)
     plot(timeArrayIabc,Iabc, 'LineWidth',2);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Current}', 'Interpreter', 'latex')
     xlim([timeArrayIabc(end)*0.99,timeArrayIabc(end)]);
     box on
     hold all
     figTitle = 'Normal GFM Operation';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Normal_GFM_Operation');
 end
 end
 
@@ -293,8 +299,8 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterActivePowerChange');
-    set(gcf, 'Position',  [400, 300, 800, 700]);
+    fig = fig = figure('Name', 'GridFormingConverterActivePowerChange');
+    set(fig, 'Position',  [400, 300, 800, 700]);
 
     subplot(2,2,1)
     plot(timeArrayPref,Pref, 'LineWidth',2);
@@ -302,20 +308,20 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
-    legend('Pref','Pmeas');
+    legend('$P_{\mathrm{ref}}$','$P_{\mathrm{meas}}$', 'Interpreter', 'latex', 'Interpreter', 'latex');
 
     subplot(2,2,2)
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Reactive Power}', 'Interpreter', 'latex')
     box on
     hold all
     subplot(2,2,3)
@@ -326,9 +332,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -336,14 +342,20 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
     figTitle = 'Change in Active Power Reference';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Change_Active_Power_Reference');
 end
 end
 
@@ -387,16 +399,16 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterReactivePowerChange');
+    fig = figure('Name', 'GridFormingConverterReactivePowerChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(2,2,1)
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -406,12 +418,12 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
-    legend('Qref','Qmeas');
+    legend('Qref','Qmeas', 'Interpreter', 'latex');
 
     subplot(2,2,3)
     timeStart = disturbanceTime-2*1/50;
@@ -421,9 +433,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -431,14 +443,20 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
     figTitle = 'Change in Reactive Power Reference';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Change_Reactive_Power_Reference');
 end
 end
 
@@ -482,16 +500,16 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterGridVoltageChange');
+    fig = figure('Name', 'GridFormingConverterGridVoltageChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1:2)
     plot(timeArrayVgrid,Vgrid, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayVgrid(end)]);
-    xlabel('time (s)');
-    ylabel('Grid Voltage (pu)');
-    title('GFM Grid Internal Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Grid\ Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Grid Internal Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -499,9 +517,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayVgrid(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -509,9 +527,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayVgrid(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -523,9 +541,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -533,13 +551,19 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
     figTitle = 'Change in Grid Internal Voltage';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Change_Grid_Voltage');
 end
 end
 
@@ -592,7 +616,7 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterLocalLoadChange');
+    fig = figure('Name', 'GridFormingConverterLocalLoadChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1)
@@ -601,10 +625,10 @@ if plotFlag>0
     plot(timeArrayPload,Pload, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPload(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('Local Load Active Power');
-    legend('Pref', 'Pmeas');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Local Load Active Power}', 'Interpreter', 'latex');
+    legend('Pref', 'Pmeas', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -614,10 +638,10 @@ if plotFlag>0
     plot(timeArrayQload,Qload, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQload(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('Local Load Reactive Power');
-    legend('Qref', 'Qmeas');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Local Load Reactive Power}', 'Interpreter', 'latex');
+    legend('Qref', 'Qmeas', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -625,9 +649,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -635,9 +659,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -649,9 +673,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -659,9 +683,9 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -717,7 +741,7 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterSmallGridFreqChange');
+    fig = figure('Name', 'GridFormingConverterSmallGridFreqChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1)
@@ -726,10 +750,10 @@ if plotFlag>0
     plot(timeArrayGridFreq,freq, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayGridFreq(end)]);
-    xlabel('time (s)');
-    ylabel('Frequency (Hz)');
-    title('Small Change in Grid Frequency');
-    legend('Grid','GFM');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Frequency}$ (Hz)', 'Interpreter', 'latex');
+    title('\\textbf{Small Change in Grid Frequency}', 'Interpreter', 'latex');
+    legend('Grid','GFM', 'Interpreter', 'latex');
     ylim([min(gridFreq)-2,max(gridFreq)+2]);
     box on
     hold all
@@ -739,9 +763,9 @@ if plotFlag>0
     grid on
     xlim([disturbanceTime*0.8 timeArrayPdamping(end)]);
 
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('Damping Power');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Damping Power}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -749,9 +773,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -760,9 +784,9 @@ if plotFlag>0
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
 
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -774,9 +798,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -784,9 +808,9 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -843,7 +867,7 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterLargeGridFreqChange');
+    fig = figure('Name', 'GridFormingConverterLargeGridFreqChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1)
@@ -852,10 +876,10 @@ if plotFlag>0
     plot(timeArrayGridFreq,freq, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayGridFreq(end)]);
-    xlabel('time (s)');
-    ylabel('Frequency (Hz)');
-    title('Large Change in Grid Frequency');
-    legend('Grid','GFM');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Frequency}$ (Hz)', 'Interpreter', 'latex');
+    title('\\textbf{Large Change in Grid Frequency}', 'Interpreter', 'latex');
+    legend('Grid','GFM', 'Interpreter', 'latex');
     ylim([min(gridFreq)-2,max(gridFreq)+2]);
     box on
     hold all
@@ -864,9 +888,9 @@ if plotFlag>0
     plot(timeArrayPdamping,Pdamping, 'LineWidth',2);
     xlim([disturbanceTime*0.8 timeArrayPdamping(end)]);
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('Damping Power');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Damping Power}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -874,9 +898,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -884,9 +908,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -898,9 +922,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -908,9 +932,9 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -967,7 +991,7 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterFullGridFreqChange');
+    fig = figure('Name', 'GridFormingConverterFullGridFreqChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1)
@@ -976,10 +1000,10 @@ if plotFlag>0
     plot(timeArrayGridFreq,freq, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayGridFreq(end)]);
-    xlabel('time (s)');
-    ylabel('Frequency (Hz)');
-    title('Full Change in Grid Frequency');
-    legend('Grid','GFM');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Frequency}$ (Hz)', 'Interpreter', 'latex');
+    title('\\textbf{Full Change in Grid Frequency}', 'Interpreter', 'latex');
+    legend('Grid','GFM', 'Interpreter', 'latex');
     ylim([min(gridFreq)-2,max(gridFreq)+2]);
     box on
     hold all
@@ -988,9 +1012,9 @@ if plotFlag>0
     plot(timeArrayPdamping,Pdamping, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPdamping(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('Damping Power');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Damping Power}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -998,9 +1022,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1008,9 +1032,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1022,9 +1046,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1032,9 +1056,9 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1095,16 +1119,16 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverter10DegGridPhaseChange');
+    fig = figure('Name', 'GridFormingConverter10DegGridPhaseChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1)
     plot(timeArrayGridPhase,gridPhase, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayGridPhase(end)]);
-    xlabel('time (s)');
-    ylabel('Phase (degree)');
-    title('Grid Phase Angle');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Phase}$ (degree)', 'Interpreter', 'latex');
+    title('\\textbf{Grid Phase Angle}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1112,9 +1136,9 @@ if plotFlag>0
     plot(timeArrayGridFreq,freq, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayGridFreq(end)]);
-    xlabel('time (s)');
-    ylabel('Frequency (Hz)');
-    title('GFM Frequency');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Frequency}$ (Hz)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Frequency}', 'Interpreter', 'latex');
     ylim([min(gridFreq)-2,max(gridFreq)+2]);
     box on
     hold all
@@ -1123,9 +1147,9 @@ if plotFlag>0
     plot(timeArrayPdamping,Pdamping, 'LineWidth',2);
     xlim([disturbanceTime*0.8 timeArrayPdamping(end)]);
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('Damping Power');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Damping Power}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1135,9 +1159,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Active and Reactive Power Output')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Active and Reactive Power Output}', 'Interpreter', 'latex')
     legend('Pmeas','Qmeas')
     box on
     hold all
@@ -1150,9 +1174,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1160,9 +1184,9 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1223,16 +1247,16 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverter60DegGridPhaseChange');
+    fig = figure('Name', 'GridFormingConverter60DegGridPhaseChange');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1)
     plot(timeArrayGridPhase,gridPhase, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayGridPhase(end)]);
-    xlabel('time (s)');
-    ylabel('Phase (degree)');
-    title('Grid Phase Angle');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Phase}$ (degree)', 'Interpreter', 'latex');
+    title('\\textbf{Grid Phase Angle}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1240,9 +1264,9 @@ if plotFlag>0
     plot(timeArrayGridFreq,freq, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayGridFreq(end)]);
-    xlabel('time (s)');
-    ylabel('Frequency (Hz)');
-    title('GFM Frequency');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Frequency}$ (Hz)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Frequency}', 'Interpreter', 'latex');
     ylim([min(gridFreq)-2,max(gridFreq)+2]);
     box on
     hold all
@@ -1251,9 +1275,9 @@ if plotFlag>0
     plot(timeArrayPdamping,Pdamping, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPdamping(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('Damping Power');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Damping Power}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1263,9 +1287,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Active and Reactive Power Output')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Active and Reactive Power Output}', 'Interpreter', 'latex')
     legend('Pmeas','Qmeas')
     box on
     hold all
@@ -1278,9 +1302,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1288,9 +1312,9 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1338,16 +1362,16 @@ outValue.I = Is(end);
 outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterPermanentFault');
+    fig = figure('Name', 'GridFormingConverterPermanentFault');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,2,1)
     plot(timeFaultSignal,faultSignal, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeFaultSignal(end)]);
-    xlabel('time (s)');
-    ylabel('Fault Trigger)');
-    title('Fault Trigger Signal');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Fault\ Trigger}$)', 'Interpreter', 'latex');
+    title('\\textbf{Fault Trigger Signal}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1355,9 +1379,9 @@ if plotFlag>0
     plot(timeArrayIgd,Is, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayIgd(end)]);
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('Fault Current');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Fault Current}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1365,9 +1389,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1375,9 +1399,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1389,9 +1413,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('Voltage at Fault')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Voltage at Fault}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1399,13 +1423,19 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('Current at Fault')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Current at Fault}', 'Interpreter', 'latex')
     box on
     hold all
     figTitle = 'Permanent Three-Phase Fault';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Permanent_Three_Phase_Fault');
 end
 end
 
@@ -1448,16 +1478,16 @@ outValue.I = Is(end);
 outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterTemporaryFault');
+    fig = figure('Name', 'GridFormingConverterTemporaryFault');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
     subplot(3,4,1:2)
     plot(timeFaultSignal,faultSignal, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeFaultSignal(end)]);
-    xlabel('time (s)');
-    ylabel('Fault Trigger)');
-    title('Fault Trigger Signal');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Fault\ Trigger}$)', 'Interpreter', 'latex');
+    title('\\textbf{Fault Trigger Signal}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1465,9 +1495,9 @@ if plotFlag>0
     plot(timeArrayIgd,Is, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayIgd(end)]);
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('Fault Current');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Fault Current}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1475,9 +1505,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1485,9 +1515,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1499,9 +1529,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('Voltage at Fault')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Voltage at Fault}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1509,9 +1539,9 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('Current at Fault')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Current at Fault}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1523,9 +1553,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('Voltage After Fault')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Voltage After Fault}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1533,14 +1563,20 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('Current After Fault')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Current After Fault}', 'Interpreter', 'latex')
     box on
     hold all
 
     figTitle = 'Temporary Three-Phase Fault';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Temporary_Three_Phase_Fault');
 end
 end
 
@@ -1588,7 +1624,7 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    figure('Name', 'GridFormingConverterIslanding');
+    fig = figure('Name', 'GridFormingConverterIslanding');
     set(gcf, 'Position',  [400, 300, 800, 700]);
 
 
@@ -1596,9 +1632,9 @@ if plotFlag>0
     plot(timeArrayTripSignal,tripSignal, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayTripSignal(end)]);
-    xlabel('time (s)');
-    ylabel('Trip Signal (pu)');
-    title('Grid Circuit Breaker Trip Signal');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Trip\ Signal}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{Grid Circuit Breaker Trip Signal}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1606,9 +1642,9 @@ if plotFlag>0
     plot(timeArrayFreq,freq, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayFreq(end)]);
-    xlabel('time (s)');
-    ylabel('Frequency (Hz)');
-    title('GFM Frequency');
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Frequency}$ (Hz)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Frequency}', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1616,9 +1652,9 @@ if plotFlag>0
     plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayPmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1626,9 +1662,9 @@ if plotFlag>0
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
     grid on
     xlim([disturbanceTime*0.8 timeArrayQmeas(end)]);
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1640,9 +1676,9 @@ if plotFlag>0
     ylim([-1.3  1.3]);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage}', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1650,14 +1686,20 @@ if plotFlag>0
     plot(timeArrayIabc,Iabc,'LineWidth',1);
     xlim([timeStart timeEnd]);
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current}', 'Interpreter', 'latex')
     box on
     hold all
 
     figTitle = 'Islanding Condition';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Islanding_Condition');
 end
 end
 

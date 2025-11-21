@@ -195,7 +195,7 @@ marginTable=table(GainCrossOverFreqInHz,GainMarginIndB,PhaseMarginInDeg);
 
 % Plotting gain and phase margin
 if plotFlag>0
-    figure('Name','GridFormingConverterControllerBodePlot');
+    fig = figure('Name','GridFormingConverterControllerBodePlot');
 
     hsubplot = subplot(2,1,1);
     semilogx(wout,20*log10(bodeMagnitude),'LineWidth',2);
@@ -222,6 +222,14 @@ if plotFlag>0
     annotation('textbox',dim,'String',annotPhaseMargin,'FitBoxToText','on');
 
     sgtitle(titleInput,'FontSize',13);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    controllerSafe = strrep(titleInput, " ", "_");
+    controllerSafe = strrep(controllerSafe, " ", "");
+    ExportFigureHighQuality(fig, ["Controller_Bode_Plot_" controllerSafe]);
 end
 end
 

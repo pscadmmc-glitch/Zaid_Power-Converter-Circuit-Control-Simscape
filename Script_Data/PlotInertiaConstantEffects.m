@@ -24,7 +24,7 @@ function outValue = PlotInertiaConstantEffects(inertiaConstantArray, testConditi
     legendPlot = cell(1,length(inertiaConstantArray));
     
     if plotFlag>0
-        figure('Name', 'GridFormingConverterIntertiaEffect');
+        fig = figure('Name', 'GridFormingConverterIntertiaEffect');
         set(gcf, 'Position',  [400, 300, 800, 700]);
         axisDatasetting(gcf);
     end
@@ -126,36 +126,42 @@ function outValue = PlotInertiaConstantEffects(inertiaConstantArray, testConditi
         subplot(3,2,1:2)
         grid on
         xlim([disturbanceTime*0.8 simulationTime]);
-        legend(legendPower);
-        legend('Location','southeast');
+        legend(legendPower, 'Interpreter', 'latex');
+        legend('Location','southeast', 'Interpreter', 'latex');
         hold all
     
         subplot(3,2,3)
         xlim([disturbanceTime*0.8 simulationTime]);
         hold all
-        legend(legendPlot);
-        legend('Location','southeast');
+        legend(legendPlot, 'Interpreter', 'latex');
+        legend('Location','southeast', 'Interpreter', 'latex');
     
         subplot(3,2,4)
         xlim([disturbanceTime*0.8 simulationTime]);
-        legend(legendPlot);
-        legend('Location','southeast');
+        legend(legendPlot, 'Interpreter', 'latex');
+        legend('Location','southeast', 'Interpreter', 'latex');
         hold all
     
     
         subplot(3,2,5)
         xlim([disturbanceTime*0.8 simulationTime]);
-        legend(legendPlot);
-        legend('Location','southeast');
+        legend(legendPlot, 'Interpreter', 'latex');
+        legend('Location','southeast', 'Interpreter', 'latex');
         hold all
     
         subplot(3,2,6)
         xlim([disturbanceTime*0.8 simulationTime]);
-        legend(legendPlot);
-        legend('Location','southeast');
+        legend(legendPlot, 'Interpreter', 'latex');
+        legend('Location','southeast', 'Interpreter', 'latex');
         hold all
     
         sgtitle('Effects of Virtual Synchronous Machine Inertia Constant','FontSize',13,'Color',[0,100,0]/256);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(gcf);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(gcf, 'Inertia_Constant_Effects');
     end
     disp('Steady State Grid-Forming Converter Output Measurement in pu');
     disp(outputTable);
@@ -167,41 +173,41 @@ function axisDatasetting(gcf)
     subplot(3,2,1:2)
     
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Active Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Active Power }', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,3)
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Inertia Power')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Inertia Power}', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,4)
     grid on
-    xlabel('time (s)');
-    ylabel('Power (pu)');
-    title('GFM Output Reactive Power ')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Reactive Power }', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,5)
     grid on
-    xlabel('time (s)');
-    ylabel('Voltage (pu)');
-    title('GFM Output Voltage Magnitude')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Voltage Magnitude}', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,6)
     grid on
-    xlabel('time (s)');
-    ylabel('Current (pu)');
-    title('GFM Output Current Magnitude')
+    xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+    ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+    title('\\textbf{GFM Output Current Magnitude}', 'Interpreter', 'latex')
     box on
     hold all
 

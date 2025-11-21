@@ -30,7 +30,7 @@ function outputTable = PlotCompareFaultRideThroughMethod(testCondition, plotFlag
     outData = sim(simIn);
     
     if plotFlag>0
-        figure('Name', 'GridFormingConverterCompareFaultRideMethod');
+        fig = figure('Name', 'GridFormingConverterCompareFaultRideMethod');
         set(gcf, 'Position',  [400, 300, 800, 650]);
         hold all
     end
@@ -60,6 +60,12 @@ function outputTable = PlotCompareFaultRideThroughMethod(testCondition, plotFlag
     
     outputTable(3,1:6) = plotCurrentLimitingMethod(testCondition, disturbanceTime, outData,plotFlag,[3 6 9]);
     
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, "Compare_Fault_Ride_Through_Methods");
+
     disp('Steady State Grid-Forming Converter Output to Compare Fault Ride-Through Methods');
     disp(outputTable);
     end
@@ -108,8 +114,8 @@ function outputTable = PlotCompareFaultRideThroughMethod(testCondition, plotFlag
         plot(timeArrayIgq,Is, 'LineWidth',2);
         xlim([disturbanceTime*0.8, timeArrayVgd(end)]);
         grid on
-        xlabel('time (s)');
-        ylabel('Peak Current (pu)');
+        xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+        ylabel('$\mathrm{Peak\ Current}$ (pu)', 'Interpreter', 'latex');
     
         if contains( testCondition.currentLimitMethodSelected, 'Virtual Impedance') && ...
                 ~contains( testCondition.currentLimitMethodSelected, 'and')
@@ -130,9 +136,9 @@ function outputTable = PlotCompareFaultRideThroughMethod(testCondition, plotFlag
         plot(timeArrayIabc,Iabc,'LineWidth',1);
         xlim([timeStart timeEnd]);
         grid on
-        xlabel('time (s)');
-        ylabel('Current (pu)');
-        title('Virtual Impedance GFM Current ')
+        xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+        ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
+        title('\\textbf{Virtual Impedance GFM Current }', 'Interpreter', 'latex')
         box on
         hold all
     
@@ -141,9 +147,9 @@ function outputTable = PlotCompareFaultRideThroughMethod(testCondition, plotFlag
         ylim([-1.3  1.3]);
         xlim([timeStart timeEnd]);
         grid on
-        xlabel('time (s)');
-        ylabel('Voltage (pu)');
-        title('Virtual Impedance Voltage')
+        xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
+        ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
+        title('\\textbf{Virtual Impedance Voltage}', 'Interpreter', 'latex')
         box on
         hold all
     end
