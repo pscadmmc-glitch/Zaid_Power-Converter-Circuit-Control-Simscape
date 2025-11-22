@@ -204,7 +204,7 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    fig = fig = figure('Name', 'GridFormingConverterNormalOperation');
+    fig = figure('Name', 'GridFormingConverterNormalOperation');
     set(fig, 'Position',  [400, 300, 800, 700]);
 
     subplot(2,2,1)
@@ -299,7 +299,7 @@ outValue.testOutcome = FindTestOutCome(Pmeas, Vgd, freq);
 
 if plotFlag>0
     % Plotting the result
-    fig = fig = figure('Name', 'GridFormingConverterActivePowerChange');
+    fig = figure('Name', 'GridFormingConverterActivePowerChange');
     set(fig, 'Position',  [400, 300, 800, 700]);
 
     subplot(2,2,1)
