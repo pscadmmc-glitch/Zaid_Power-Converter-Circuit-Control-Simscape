@@ -138,7 +138,7 @@ function outputTable = PlotCompareFaultRideThroughMethod(testCondition, plotFlag
         grid on
         xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
         ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
-        title('\\textbf{Virtual Impedance GFM Current }', 'Interpreter', 'latex')
+        title('Virtual Impedance GFM Current ', 'Interpreter', 'latex')
         box on
         hold all
     
@@ -149,7 +149,7 @@ function outputTable = PlotCompareFaultRideThroughMethod(testCondition, plotFlag
         grid on
         xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
         ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
-        title('\\textbf{Virtual Impedance Voltage}', 'Interpreter', 'latex')
+        title('Virtual Impedance Voltage', 'Interpreter', 'latex')
         box on
         hold all
     end

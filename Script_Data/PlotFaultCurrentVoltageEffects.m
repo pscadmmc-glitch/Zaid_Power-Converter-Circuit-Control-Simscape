@@ -170,7 +170,7 @@ function axisDatasetting(gcf)
     grid on
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Fault\ Trigger}$)', 'Interpreter', 'latex');
-    title('\\textbf{Fault Trigger Signal}', 'Interpreter', 'latex');
+    title('Fault Trigger Signal', 'Interpreter', 'latex');
     box on
     grid on
     hold all
@@ -179,7 +179,7 @@ function axisDatasetting(gcf)
     grid on
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Voltage}$ (pu)', 'Interpreter', 'latex');
-    title('\\textbf{GFM Output Voltage Magnitude}', 'Interpreter', 'latex')
+    title('GFM Output Voltage Magnitude', 'Interpreter', 'latex')
     box on
     hold all
     
@@ -187,14 +187,14 @@ function axisDatasetting(gcf)
     grid on
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Current}$ (pu)', 'Interpreter', 'latex');
-    title('\\textbf{GFM Output Current Magnitude}', 'Interpreter', 'latex')
+    title('GFM Output Current Magnitude', 'Interpreter', 'latex')
     box on
     hold all
     
     subplot(3,2,5)
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
-    title('\\textbf{GFM Output Active Power}', 'Interpreter', 'latex')
+    title('GFM Output Active Power', 'Interpreter', 'latex')
     box on
     hold all
     
@@ -202,7 +202,7 @@ function axisDatasetting(gcf)
     grid on
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
-    title('\\textbf{GFM Output Reactive Power}', 'Interpreter', 'latex')
+    title('GFM Output Reactive Power', 'Interpreter', 'latex')
     box on
     hold all
 end
