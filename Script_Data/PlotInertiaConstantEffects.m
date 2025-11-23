@@ -90,18 +90,18 @@ function outValue = PlotInertiaConstantEffects(inertiaConstantArray, testConditi
             subplot(3,2,1:2)
             if i <2
                 plot(timeArrayPref,Pref, 'LineWidth',2);
-                legendPower{1} = sprintf('P_{ref}');
+                legendPower{1} = sprintf('$P^*$');
     
             end
             hold all
             plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
             hold all
-            legendPower{i+1} = sprintf('P_{meas} at inertia = %0.2f pu',inertiaConstantArray(i));
+            legendPower{i+1} = sprintf('$P^m$ at $H = %0.2f$ pu',inertiaConstantArray(i));
     
             subplot(3,2,3)
             plot(timeArrayPinertia,Pinertia, 'LineWidth',2);
             hold all
-            legendPlot{i} = sprintf('inertia = %0.2f pu',inertiaConstantArray(i));
+            legendPlot{i} = sprintf('$H = %0.2f$ pu',inertiaConstantArray(i));
     
             subplot(3,2,4)
             plot(timeArrayQmeas,Qmeas, 'LineWidth',2);

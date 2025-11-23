@@ -88,17 +88,17 @@ function outValue = PlotDampingEffects(dampingArray, testCondition,plotFlag)
             subplot(3,2,1:2)
             if i <2
                 plot(timeArrayPref,Pref, 'LineWidth',2);
-                legendPower{1} = sprintf('P_{ref}');
+                legendPower{1} = sprintf('$P^*$');
             end
             hold all
             plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
             hold all
-            legendPower{i+1} = sprintf('P_{meas} at damping = %0.2f pu',dampingArray(i));
+            legendPower{i+1} = sprintf('$P^m$ at $D_p = %0.2f$ pu',dampingArray(i));
     
             subplot(3,2,3)
             plot(timeArrayPdamping,Pdamping, 'LineWidth',2);
             hold all
-            legendPlot{i} = sprintf('damping = %0.2f pu',dampingArray(i));
+            legendPlot{i} = sprintf('$D_p = %0.2f$ pu',dampingArray(i));
     
             subplot(3,2,4)
             plot(timeArrayQmeas,Qmeas, 'LineWidth',2);

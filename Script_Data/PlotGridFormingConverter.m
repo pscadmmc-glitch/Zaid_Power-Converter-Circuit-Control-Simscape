@@ -313,7 +313,7 @@ if plotFlag>0
     title('GFM Output Active Power', 'Interpreter', 'latex')
     box on
     hold all
-    legend('$P_{\mathrm{ref}}$','$P_{\mathrm{meas}}$', 'Interpreter', 'latex', 'Interpreter', 'latex');
+    legend('$P^*$','$P^m$', 'Interpreter', 'latex');
 
     subplot(2,2,2)
     plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
@@ -423,7 +423,7 @@ if plotFlag>0
     title('GFM Output Reactive Power ', 'Interpreter', 'latex')
     box on
     hold all
-    legend('Qref','Qmeas', 'Interpreter', 'latex');
+    legend('$Q^*$','$Q^m$', 'Interpreter', 'latex');
 
     subplot(2,2,3)
     timeStart = disturbanceTime-2*1/50;
@@ -628,7 +628,7 @@ if plotFlag>0
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
     title('Local Load Active Power', 'Interpreter', 'latex');
-    legend('Pref', 'Pmeas', 'Interpreter', 'latex');
+    legend('$P^*$', '$P^m$', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -641,7 +641,7 @@ if plotFlag>0
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
     title('Local Load Reactive Power', 'Interpreter', 'latex');
-    legend('Qref', 'Qmeas', 'Interpreter', 'latex');
+    legend('$Q^*$', '$Q^m$', 'Interpreter', 'latex');
     box on
     hold all
 
@@ -1162,7 +1162,7 @@ if plotFlag>0
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
     title('GFM Active and Reactive Power Output', 'Interpreter', 'latex')
-    legend('Pmeas','Qmeas')
+    legend('$P^m$','$Q^m$', 'Interpreter', 'latex')
     box on
     hold all
 
@@ -1290,7 +1290,7 @@ if plotFlag>0
     xlabel('$\mathrm{Time}$ (s)', 'Interpreter', 'latex');
     ylabel('$\mathrm{Power}$ (pu)', 'Interpreter', 'latex');
     title('GFM Active and Reactive Power Output', 'Interpreter', 'latex')
-    legend('Pmeas','Qmeas')
+    legend('$P^m$','$Q^m$', 'Interpreter', 'latex')
     box on
     hold all
 

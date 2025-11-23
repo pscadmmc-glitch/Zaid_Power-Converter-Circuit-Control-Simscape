@@ -88,7 +88,7 @@ function outValue = PlotFaultCurrentVoltageEffects(faultImpedanceArray, testCond
             hold all
             plot(timeArrayPmeas,Pmeas, 'LineWidth',2);
             hold all
-            legendFault{i} = sprintf('R_{fault} = %0.2f Ohm',faultImpedanceArray(i));
+            legendFault{i} = sprintf('$R_{fault} = %0.2f$ Ohm',faultImpedanceArray(i));
     
             subplot(3,2,6)
             plot(timeArrayQmeas,Qmeas, 'LineWidth',2);
@@ -223,8 +223,8 @@ function plotCurrentLimitStandard(outValue)
     hold all
     plot([outValue.Igq],[outValue.V],'o','LineWidth',3);
     
-    legend('Standard Line','Standard Operating Area','Simulated Peak Current (I_{s})','Simulated Peak Quadrature Axis Current (I_{q})');
-    legend('Location','southwest', 'Interpreter', 'latex');
+    legend('Standard Line','Standard Operating Area','Simulated Peak Current ($I_s$)','Simulated Peak Quadrature Axis Current ($I_q$)', 'Interpreter', 'latex');
+    legend('Location','southwest');
     grid on
     box on
     
