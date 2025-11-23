@@ -691,6 +691,12 @@ if plotFlag>0
 
     figTitle = 'Change in Local Load Power';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Change_Local_Load');
 end
 end
 
@@ -816,6 +822,12 @@ if plotFlag>0
 
     figTitle = 'Small Change (0.5Hz) in Grid Frequency with 1Hz/s';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Grid_Frequency_Small_Change_0.5Hz');
 end
 end
 
@@ -940,6 +952,12 @@ if plotFlag>0
 
     figTitle = 'Large Change (2Hz) in Grid Frequency with 2Hz/s';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Grid_Frequency_Large_Change_2Hz');
 end
 end
 
@@ -1064,6 +1082,12 @@ if plotFlag>0
 
     figTitle = 'Full Change in Grid Frequency +2Hz with 2Hz/s and -5Hz with 1Hz/s';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Grid_Frequency_Full_Range_Change');
 end
 end
 
@@ -1192,6 +1216,12 @@ if plotFlag>0
 
     figTitle = '10 Degree Change in Grid Phase Angle';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Grid_Phase_10_Degree_Change');
 end
 end
 
@@ -1320,6 +1350,12 @@ if plotFlag>0
 
     figTitle = '60 Degree Change in Grid Phase Angle';
     figureTitle(figTitle,outValue);
+
+    % Set LaTeX font for all elements
+    SetLatexFont(fig);
+
+    % Export figure in high quality
+    ExportFigureHighQuality(fig, 'Grid_Phase_60_Degree_Change');
 end
 end
 
