@@ -50,11 +50,15 @@ k_smc2  = -0.25;
 
 ```matlab
 % Open the project first so the paths resolve
-openProject('GridFormingConverterWithSimscape.prj');
+openProject('PowerConverterCircuitAndControlDesignWithSimscape.prj');
 
 % All 13 scenarios, PI and STSMC, results written to J:
 results = ComparePIvsSMC();
 ```
+
+> The upstream `README.md` refers to `GridFormingConverterWithSimscape.prj`.
+> That file does not exist in the repository - the project is
+> `PowerConverterCircuitAndControlDesignWithSimscape.prj`.
 
 Useful options:
 
